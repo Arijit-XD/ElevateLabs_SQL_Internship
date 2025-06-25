@@ -1,26 +1,17 @@
-
--- 										STUDENT MANAGEMENT SYSTEM
-
-CREATE DATABASE IF NOT EXISTS student_mgmt;
-USE student_mgmt;
-
-
--- Table: Departments
+-- Departments table
 CREATE TABLE Departments (
     department_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL
 );
 
-
--- Table: Instructors
+-- Instructors table
 CREATE TABLE Instructors (
     instructor_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE
+    email VARCHAR(100)
 );
 
-
--- Table: Courses
+-- Courses table
 CREATE TABLE Courses (
     course_id INT PRIMARY KEY AUTO_INCREMENT,
     course_name VARCHAR(100) NOT NULL,
@@ -30,20 +21,18 @@ CREATE TABLE Courses (
     FOREIGN KEY (instructor_id) REFERENCES Instructors(instructor_id)
 );
 
-
--- Table: Students
+-- Students table
 CREATE TABLE Students (
     student_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE,
+    email VARCHAR(100),
     gender ENUM('M', 'F', 'Other'),
     date_of_birth DATE,
     department_id INT,
     FOREIGN KEY (department_id) REFERENCES Departments(department_id)
 );
 
-
--- Table: Enrollments (Many-to-Many)
+-- Enrollments table
 CREATE TABLE Enrollments (
     enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
     student_id INT,
