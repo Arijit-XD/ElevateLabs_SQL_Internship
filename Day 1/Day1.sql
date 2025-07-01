@@ -34,7 +34,7 @@ CREATE TABLE Students (
 
 -- Enrollments
 CREATE TABLE Enrollments (
-    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,
+    enrollment_id INT PRIMARY KEY AUTO_INCREMENT,coursesstudents
     student_id INT,
     course_id INT,
     enrollment_date DATE,
